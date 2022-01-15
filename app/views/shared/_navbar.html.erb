@@ -3,9 +3,14 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+
+        <% if user_signed_in? %>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%= current_user.email %><i class="material-icons right">arrow_drop_down</i></a></li>
+        <% else %>
+          <li><%= link_to 'Cadastre-se', new_user_registration_path %></li>
+          <li><%= link_to 'Entrar', new_user_session_path %></li>
+        <% end %>
+
       </ul>
     </div>
   </nav>
@@ -31,4 +36,10 @@
       Artigos
     <% end %>
   </li>
+</ul>
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to 'Editar', edit_user_registration_path %></li>
+  <li class="divider"></li>
+  <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
 </ul>

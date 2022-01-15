@@ -10,6 +10,9 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "trix"
+import "@rails/actiontext"
+
 
 Rails.start()
 Turbolinks.start()
@@ -19,3 +22,6 @@ $(document).ready(function(){
   $('.dropdown-trigger').dropdown({
   });
 });
+
+require("trix")
+require("@rails/actiontext")

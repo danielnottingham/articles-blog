@@ -6,7 +6,7 @@
   <div class="form-inputs input-field">
     <%= f.input :title, input_html: { class: 'input-field col s6' } %>
     <%= f.input :content, as: :rich_text_area, input_html: { class: 'input-field col s6' } %>
-    <%= f.association :user, as: :hidden, value: current_user.id %>
+    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
   </div>
 
   <div class="form-actions">

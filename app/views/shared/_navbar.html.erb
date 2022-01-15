@@ -1,11 +1,11 @@
 <header>
-  <nav>
+  <nav class="deep-purple darken-1">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" class="brand-logo ml10">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
         <% if user_signed_in? %>
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%= current_user.email %><i class="material-icons right">arrow_drop_down</i></a></li>
+          <li class="mr10"><%= current_user.email %></li>
         <% else %>
           <li><%= link_to 'Cadastre-se', new_user_registration_path %></li>
           <li><%= link_to 'Entrar', new_user_session_path %></li>
@@ -16,10 +16,11 @@
   </nav>
 </header>
 
-<ul id="sidenav-1" class="sidenav sidenav-fixed purple lighten-5">
+<ul id="sidenav-1" class="sidenav sidenav-fixed deep-purple lighten-4">
 	<li><a class="subheader">LINDSAY DANNY NOTTINGHAM</a></li>
+  <hr>
 	<li>
-    <%= link_to root_path do %>
+    <%= link_to about_path do %>
       <i class="material-icons">psychology</i>
       Sobre mim
     <% end %>
@@ -36,10 +37,38 @@
       Artigos
     <% end %>
   </li>
+
+<hr>
+
+  <% if user_signed_in? && current_user.role_type == 'admin' %>
+  <li>
+    <%= link_to new_article_path do %>
+      <i class="material-icons">edit</i>
+      Novo Artigo
+    <% end %>
+  </li>
+
+  <hr>
+
+  <li>
+    <%= link_to edit_user_registration_path do %>
+      <i class="material-icons">manage_accounts</i>
+      Editar conta
+    <% end %>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="material-icons">logout</i>
+      Sair
+    <% end %>
+  </li>
+  <hr>
+  <% end %>
+
 </ul>
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to 'Editar', edit_user_registration_path %></li>
+  <li><%= link_to 'Editar conta', edit_user_registration_path %></li>
   <li class="divider"></li>
   <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
 </ul>

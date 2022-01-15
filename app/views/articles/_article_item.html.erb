@@ -1,0 +1,13 @@
+  <div class="col s6 m7">
+    <h4 class="header center-align"><%= article.title %></h4>
+    <div class="card horizontal card-panel hoverable">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= truncate(strip_tags(article.content.to_s), length: 450) %></p>
+        </div>
+        <div class="card-action">
+          <p><%= link_to 'Leia mais...', article %></p>
+        </div>
+      </div>
+    </div>
+  </div>

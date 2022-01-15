@@ -1,0 +1,34 @@
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<ul id="sidenav-1" class="sidenav sidenav-fixed purple lighten-5">
+	<li><a class="subheader">LINDSAY DANNY NOTTINGHAM</a></li>
+	<li>
+    <%= link_to root_path do %>
+      <i class="material-icons">psychology</i>
+      Sobre mim
+    <% end %>
+  </li>
+  <li>
+    <%= link_to contact_path do %>
+      <i class="material-icons">local_phone</i>
+      Contato
+    <% end %>
+  </li>
+  <li>
+    <%= link_to contact_path do %>
+      <i class="material-icons">article</i>
+      Artigos
+    <% end %>
+  </li>
+</ul>

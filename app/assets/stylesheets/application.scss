@@ -1,0 +1,5 @@
+@import "materialize/components/color-variables";
+$primary-color: color("purple", "accent-4") !default;
+@import 'materialize';
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import './theme.css'

@@ -18,10 +18,15 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(document).ready(function(){
-  $('.dropdown-trigger').dropdown({
-  });
-});
+/* CUSTOM SCROLL BAR */
+$(window).scroll(function() {
+  var scroll  = $(window).scrollTop(),
+  dh = $(document).height(),
+  wh = $(window).height();
+  var scrollPercent = (scroll / (dh-wh)) * 100;
+  $('#progressBar').css('height', scrollPercent + '%');
+})
+/* CUSTOM SCROLL BAR */
 
 require("trix")
 require("@rails/actiontext")

@@ -1,0 +1,60 @@
+
+<div class="sidebar">
+  <div class="header-logo">
+    <img src="logodanny-navbar.png" class="logo">
+  </div>
+  <ul class="nav">
+    <li>
+      <%= link_to about_path do %>
+        <i class="material-icons">psychology</i>
+        <span>Sobre mim</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to contact_path do %>
+        <i class="material-icons">local_phone</i>
+        <span>Contatos</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to articles_path do %>
+        <i class="material-icons">article</i>
+        <span>Artigos</span>
+      <% end %>
+    </li>
+
+    <% if user_signed_in? && current_user.role_type == 'admin' %>
+    <hr>
+    <li>
+      <%= link_to new_article_path do %>
+        <i class="material-icons">edit</i>
+        <span>Novo artigo</span>
+      <% end %>
+    </li>
+    <hr>
+    <li>
+      <%= link_to edit_user_registration_path do %>
+        <i class="material-icons">manage_accounts</i>
+        Editar conta
+      <% end %>
+    </li>
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="material-icons">logout</i>
+        Sair
+      <% end %>
+    </li>
+    <hr>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li style="text-align: center; color: #fff;">
+      <%= current_user.email %>
+    </li>
+  <% else %>
+    <hr>
+    <li><%= link_to 'Cadastre-se', new_user_registration_path %></li>
+    <li><%= link_to 'Entrar', new_user_session_path %></li>
+  <% end %>
+  </ul>
+</div>
